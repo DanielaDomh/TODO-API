@@ -2,11 +2,16 @@ const express = require('express');
 const Tasks = require('./models/tasks.models')
 const Users = require('./models/users.models');
 const db = require('./utils/database');
-require('dotenv').config();
 const cors = require('cors');
+require('dotenv').config();
 
 const initModels = require('./models/initModels');
 initModels();
+
+Users;
+Tasks;
+
+const PORT = process.env.PORT ?? 5000;
 
 db.authenticate()
 .then(() => {
@@ -14,7 +19,6 @@ db.authenticate()
 })
 .catch(error => console.log('error'))
 
-const PORT = process.env.PORT ?? 5000;
 
 //{alter:true}
 db.sync().then(() => console.log('Base de datos sincronizada'))
