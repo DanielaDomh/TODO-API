@@ -1,4 +1,4 @@
-const { DataTypes } = require('sequelize');
+const { DataTypes, INTEGER } = require('sequelize');
 const db = require('../utils/database')
 
 const Tasks = db.define('tasks', {
@@ -13,8 +13,15 @@ const Tasks = db.define('tasks', {
     isCompleted: {
         type: DataTypes.BOOLEAN(false),
         allowNull: false,
-
     },
+    userId: {
+        type: INTEGER,
+        allowNull: false,
+    },
+    categoryId:{
+        type: INTEGER,
+        allowNull: false,
+    }
 },
     { timestamps: false }
 );

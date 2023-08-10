@@ -16,16 +16,6 @@ const Users = db.define('users', {
         type: DataTypes.STRING(30),
         allowNull: false
     },
-    taskId:{
-        type: DataTypes.INTEGER,
-        allowNull: false
-
-    },
-    categoryId:{
-        type: DataTypes.INTEGER,
-        allowNull: false
-
-    }
 },
     { timestamps: false }
 );
