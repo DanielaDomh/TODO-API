@@ -1,5 +1,6 @@
 const Users = require("../models/users.models")
-const Tasks = require('../models/tasks.models')
+const Tasks = require('../models/tasks.models');
+const category = require("../models/categories.models");
 const Category = require('../models/categories.models');
 
 //Obtener todos los usuarios
@@ -46,6 +47,17 @@ const createTask = async (req, res) => {
     }
 };
 
+//Crear categorias
+const createCategory = async (req, res) => {
+    try {
+        const newCategory = req.body;
+        const category = await Category.create(newCategory)
+        res.status(201).json(newCategory);
+    } catch(error){
+        res.status(400).json(error);
+    }
+};
+
 //Actualizar tareas
 const updateTask = async(req, res) => {
     try {
@@ -78,6 +90,7 @@ module.exports = {
     getAllUsers,
     createUsers,
     createTask,
+    createCategory,
     updateTask,
     deleteTask
 }

@@ -1,5 +1,5 @@
 const { Router } = require("express");
-const { getAllUsers, createUsers, createTask, updateTask, deleteTask } = require("../controllers/users.controlles");
+const { getAllUsers, createUsers, createTask, createCategory, updateTask, deleteTask } = require("../controllers/users.controlles");
 
 //Instancia del router
 const router = Router();
@@ -12,6 +12,9 @@ router.post('/newuser', createUsers);
 
 //Create TASKS
 router.post('/newtask/:id', createTask);
+
+//Create Categories
+router.post('/newCategory', createCategory);
 
 //Update task state (completed)
 router.put('/task/:id', updateTask)
